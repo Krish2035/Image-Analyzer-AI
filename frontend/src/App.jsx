@@ -126,7 +126,7 @@ export default function App() {
             )}
             <div className="model-selector-pill">
               <span className="status-dot" />
-              <span>VisionGPT (Gemini 1.5 Flash + Groq Failover)</span>
+              <span>VisionGPT (Gemini 3.8 Flash + Groq Failover)</span>
             </div>
           </div>
         </header>

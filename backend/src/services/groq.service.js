@@ -31,7 +31,7 @@ export async function streamGroqVision({ apiKey, prompt, image, onToken }) {
   });
 
   const stream = await groq.chat.completions.create({
-    model: 'llama-3.2-11b-vision-preview',
+    model: 'qwen/qwen3.8-27b',
     messages: [
       { role: 'system', content: SYSTEM_INSTRUCTION },
       { role: 'user', content: contentParts },

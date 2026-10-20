@@ -50,12 +50,12 @@ export function MessageItem({ message }) {
                   {message.fallback ? (
                     <>
                       <Zap size={11} color="var(--accent-amber)" />
-                      <span>Groq Llama 3.2 Vision (Failover)</span>
+                      <span>Groq Qwen 3.8 Vision (Failover)</span>
                     </>
                   ) : (
                     <>
                       <ShieldCheck size={11} color="var(--accent-green)" />
-                      <span>Gemini 1.5 Flash</span>
+                      <span>Gemini 3.8 Flash</span>
                     </>
                   )}
                 </div>

@@ -14,7 +14,7 @@ export async function streamGeminiVision({ apiKey, prompt, image, onToken }) {
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
+    model: 'gemini-3.8-flash',
     systemInstruction: SYSTEM_INSTRUCTION,
   });
 
@@ -34,7 +34,17 @@ export async function streamGeminiVision({ apiKey, prompt, image, onToken }) {
   const responseStream = await model.generateContentStream(contentParts);
 
   for await (const chunk of responseStream.stream) {
-    const text = chunk.text();
+    let text = '';
+    try {
+      text = chunk.text();
+    } catch {
+      const parts = chunk.candidates?.[0]?.content?.parts || [];
+      for (const part of parts) {
+        if (part.text) {
+          text += part.text;
+        }
+      }
+    }
     if (text) {
       onToken(text);
     }

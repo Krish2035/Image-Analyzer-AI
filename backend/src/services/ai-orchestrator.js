@@ -26,8 +26,8 @@ class AIOrchestrator {
     // 1. Attempt Primary Provider: Gemini 1.5 Flash
     if (geminiAvailable) {
       try {
-        logger.info('Routing request to Primary Provider: Gemini 1.5 Flash');
-        if (onMeta) onMeta({ provider: 'gemini-1.5-flash', fallback: false });
+        logger.info('Routing request to Primary Provider: Gemini 3.8 Flash');
+        if (onMeta) onMeta({ provider: 'gemini-3.8-flash', fallback: false });
 
         let tokenEmitted = false;
         await streamGeminiVision({
@@ -40,7 +40,7 @@ class AIOrchestrator {
           },
         });
 
-        return { provider: 'gemini-1.5-flash', success: true };
+        return { provider: 'gemini-3.8-flash', success: true };
       } catch (err) {
         const isRateLimit =
           err.status === 429 ||
@@ -66,10 +66,10 @@ class AIOrchestrator {
     // 2. Failover Provider: Groq Llama 3.2 Vision
     if (activeGroqKey) {
       try {
-        logger.info('Routing request to Failover Provider: Groq Llama 3.2 Vision');
+        logger.info('Routing request to Failover Provider: Groq Qwen 3.8 Vision');
         if (onMeta) {
           onMeta({
-            provider: 'groq-llama-3.2-vision',
+            provider: 'groq-qwen-3.8-vision',
             fallback: true,
             reason: this.isGeminiCoolingDown()
               ? `Gemini cooldown active (${this.getCooldownRemainingSeconds()}s left)`
@@ -84,7 +84,7 @@ class AIOrchestrator {
           onToken,
         });
 
-        return { provider: 'groq-llama-3.2-vision', success: true, fallback: true };
+        return { provider: 'groq-qwen-3.8-vision', success: true, fallback: true };
       } catch (groqErr) {
         logger.error('Groq failover also encountered an error:', groqErr.message);
         throw new Error(`Both primary and fallback AI providers failed. Groq error: ${groqErr.message}`);
