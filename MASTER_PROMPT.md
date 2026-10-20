@@ -217,3 +217,29 @@ The AI must act as a Senior Technical Troubleshooter & Visual Analyst:
 3. **Phase 3: ChatGPT UI System:** Build the dark theme design system, sidebar layout, message thread, and Markdown parser.
 4. **Phase 4: Multimodal Input Engine:** Implement the clipboard paste listener (`Ctrl+V`), drag-and-drop boundary, and input thumbnail chip preview.
 5. **Phase 5: End-to-End Testing & Polish:** Verify seamless failover, token streaming responsiveness, and error boundary handling.
+
+---
+
+## 8. REPOSITORY & GIT INITIALIZATION COMMANDS
+
+### Core Project Folders
+The application codebase is strictly separated into two root directories:
+- **`backend/`**: Node.js & Express API gateway with AI failover streaming.
+- **`frontend/`**: Vite + React ChatGPT UI clone with clipboard paste screenshot handlers.
+
+### Git Setup Workflow
+```bash
+# 1. Initialize README and Git tracking
+echo "# Image-Analyzer-AI" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+
+# 2. Set main branch and remote repository
+git branch -M main
+git remote add origin https://github.com/Krish2035/Image-Analyzer-AI.git
+
+# 3. Push to remote
+git push -u origin main
+```
+
