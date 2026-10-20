@@ -1,0 +1,188 @@
+.input-container-wrapper {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 20px 24px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.input-box-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box-card:focus-within {
+  border-color: #555;
+  box-shadow: 0 0 0 1px #555, var(--shadow-lg);
+}
+
+/* Image Attachment Chip Preview */
+.attachment-preview-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attachment-chip {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #000;
+  box-shadow: var(--shadow-sm);
+}
+
+.attachment-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chip-remove-btn {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.15s ease;
+}
+
+.chip-remove-btn:hover {
+  background-color: var(--accent-rose);
+  transform: scale(1.1);
+}
+
+.chip-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chip-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.chip-size {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Input Row */
+.input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.chat-textarea {
+  flex: 1;
+  max-height: 200px;
+  min-height: 24px;
+  resize: none;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: transparent;
+  padding: 4px 0;
+}
+
+.chat-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.action-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.attach-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.attach-btn:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.send-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.send-btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.send-btn:disabled {
+  background-color: var(--bg-surface-active);
+  color: var(--text-muted);
+}
+
+.stop-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-disclaimer {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Drag and Drop Backdrop */
+.drag-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 163, 127, 0.12);
+  border: 2px dashed var(--accent-green);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-primary);
+  pointer-events: none;
+}
